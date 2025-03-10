@@ -37,7 +37,7 @@ jobs:
         with:
           context: .
           push: false
-          tags: ${{ env.IMAGE_NAME }}:${{ inputs.version }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ inputs.version }}
 
   push:
     name: Build & push image
@@ -60,5 +60,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.IMAGE_NAME }}:${{ inputs.version }}
-            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ inputs.version }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
